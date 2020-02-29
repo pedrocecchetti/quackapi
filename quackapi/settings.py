@@ -42,6 +42,7 @@ DEFAULT_APPS = [
 CUSTOM_APPS = [
     'users',
     'rest_framework',
+    'posts',
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS

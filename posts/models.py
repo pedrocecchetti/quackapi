@@ -17,7 +17,6 @@ class BlogPost(models.Model):
     author = models.ForeignKey(to='users.User', on_delete=models.SET_NULL, null=True)
 
     # Monitoring
-    last_login = models.DateTimeField(null=True, verbose_name="Ultimo login")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Data de criação")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Ultima atualização")
 
