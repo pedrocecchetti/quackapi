@@ -1,0 +1,27 @@
+services:
+  django:
+    image: quack-api
+    build:
+      context: .
+      args:
+        release: dev
+      volumes:
+        - ./:/usr/src/app
+        - django-media:/usr/src/app/media
+        - django-static:/usr/src/app/static
+      env_file:
+        - develop.env
+      environment:
+        - COMMAND=runserver
+      ports:
+        - 8000:8000
+      depends_on:
+        - postgres
+
+  postgres:
+    image: mdillon/postgis:11
+    ports: 5432:5432
+    volumes:
+      - postgres-data:/data
+      environment:
+        - POSTGRES_PASSWD=postgres
